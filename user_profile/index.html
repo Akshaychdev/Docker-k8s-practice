@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profiler</title>
+
+    <!-- Script -->
+    <script src="/js/script.js" async defer></script>
+  </head>
+  <style>
+    .container {
+      width: 80%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      padding: 0.5em 0.8em;
+    }
+
+    label {
+      font-weight: bold;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1 id="header">User Profile</h1>
+
+      <!-- loaded from the backend -->
+      <img
+        src="profile-picture"
+        alt="profile picture"
+        class="profile-img"
+        style="width: 200px; height: auto"
+      />
+      <h3>Name: <span id="name">Anna Smith</span></h3>
+      <hr />
+      <h3>Email: <span id="email">anna.smith@example.com</span></h3>
+      <hr />
+      <h3>Interests: <span id="interests">coding</span></h3>
+      <hr />
+      <button class="btn" onclick="editProfile()">Edit Profile</button>
+    </div>
+    <div class="container container--edit" style="display: none">
+      <h1 class="header">User Profile</h1>
+      <img
+        src="profile-picture"
+        alt="profile picture"
+        class="profile-img"
+        style="width: 200px; height: auto; display: block; margin-bottom: 2rem"
+      />
+      <div class="form-element">
+        <label for="input-name">Name:</label>
+        <input type="text" id="input-name" />
+      </div>
+      <br />
+      <div class="form-element">
+        <label for="input-email">Email:</label>
+        <input type="email" id="input-email" />
+      </div>
+      <br />
+      <div class="form-element">
+        <label for="input-interest">Interests:</label>
+        <input type="text" id="input-interest" />
+      </div>
+      <br />
+      <button class="btn" onclick="saveProfile()">Save Profile</button>
+    </div>
+  </body>
+</html>
