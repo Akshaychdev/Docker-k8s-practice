@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 // get the profile picture and load it
 app.get('/profile-picture', (req, res) => {
-  const img = fs.readFileSync('cat-picture.jpg');
+  const img = fs.readFileSync('public/images/cat-picture.jpg');
   // to display response from the HTTP server as HTML
   res.writeHead(200, {'Content-Type': 'image/jpg'});
   // send the cached image as binary data
@@ -41,7 +41,7 @@ const mongoUrlDocker = "mongodb://mongo-admin:incorrect@mongodb";
 app.post('/update-profile', function (req, res) {
   const userObj = req.body;
 
-  MongoClient.connect(mongoUrlLocal, function (err, client) {
+  MongoClient.connect(mongoUrlDocker, function (err, client) {
     if (err) throw err;
 
     let db = client.db('user-account');
@@ -65,7 +65,7 @@ app.post('/update-profile', function (req, res) {
 app.get('/get-profile', function (req, res) {
   let response = {};
   // Connect to the db
-  MongoClient.connect(mongoUrlLocal, function (err, client) {
+  MongoClient.connect(mongoUrlDocker, function (err, client) {
     if (err) throw err;
 
     let db = client.db('user-account');
