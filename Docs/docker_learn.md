@@ -460,6 +460,15 @@ so, this is the command needed,
 * `CMD`, is used to execute entrypoint linux commands, `CMD ["node", "server.js"]`, which is same as `node server.js` use to run the app, can run this as the files are copied and the node is already installed in the system.
 * Why can it use `RUN node server.js`, cz `CMD` is used for entrypoint commands, ie it says you needed to execute this as an entrypoint command.
 
+### ADD and COPY in Dockerfile
+
+* **ADD** command is older than **COPY**, Since the launch of the Docker platform, the **ADD** instruction has been part of its list of commands.
+* The command copies files/directories to a file system of the specified container, `ADD /source/file/path  /destination/path`
+* **ADD** can also copy files from URL's, also it copies compressed files(from local), automatically extracting the content in the given destination(formats, gz, bz, xz..)
+* **COPY** only has only one assigned function. Its role is to duplicate files/directories in a specified location in their existing format. This means that it doesn’t deal with extracting a compressed file, but rather copies it as-is.
+* The instruction can be used only for locally stored files, and to copy files as-is, with `COPY /source/file/path  /destination/path`.
+* Conclusion, To sum up – use **COPY**. As Docker itself suggests, **avoid the ADD command** unless you need to extract a local tar file.
+
 ### Creating the Dockerfile
 
 * Docerfile cant have any file name, it must be exactly called `Dockerfile`.
